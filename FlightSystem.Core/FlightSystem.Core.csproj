@@ -19,4 +19,8 @@
     <PackageReference Include="Oracle.EntityFrameworkCore" Version="6.21.90" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TESTFOLDER\" />
+  </ItemGroup>
+
 </Project>
