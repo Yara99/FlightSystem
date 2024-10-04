@@ -7,15 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Repository\**" />
-    <Compile Remove="Services\**" />
-    <EmbeddedResource Remove="Repository\**" />
-    <EmbeddedResource Remove="Services\**" />
-    <None Remove="Repository\**" />
-    <None Remove="Services\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">

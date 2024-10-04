@@ -7,15 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Repository\**" />
-    <Compile Remove="Services\**" />
-    <EmbeddedResource Remove="Repository\**" />
-    <EmbeddedResource Remove="Services\**" />
-    <None Remove="Repository\**" />
-    <None Remove="Services\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Oracle.EntityFrameworkCore" Version="6.21.90" />
   </ItemGroup>
 
