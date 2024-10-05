@@ -8,7 +8,7 @@ namespace FlightSystem.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-        "Freezing123", "Bracing", "Chilly", "Cool", "Mild123", "Warm", "Balmy", "Hot", "Sweltering", "Scorching","Waseem Ababneh","Waseem Ababneh"
+        "Freezing123", "Bracing", "Chilly", "Cool", "Mild123", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
