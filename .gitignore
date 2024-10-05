@@ -361,5 +361,3 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-# Ignore the appsettings.json file in FlightSystem project
-FlightSystem/appsettings.json
