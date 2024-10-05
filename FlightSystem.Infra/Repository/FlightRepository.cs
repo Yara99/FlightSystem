@@ -8,6 +8,5 @@ namespace FlightSystem.Infra.Repository
 {
     public class FlightRepository
     {
-        // Hello its 9:16 pm
     }
 }
