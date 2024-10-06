@@ -32,12 +32,12 @@ namespace FlightSystem.Infra.Services
             }
 
             // Perform any business logic (e.g., checking if the user exists, etc.)
-           var existingUser = _userRepository.GetUserById(Convert.ToInt32(userDto.Id.Value));
+           /*var existingUser = _userRepository.GetUserById(Convert.ToInt32(userDto.Id.Value));
             if (existingUser == null)
             {
                 throw new Exception("User not found");
             }
-          
+          */
             // Call the repository to update the user
             _userRepository.UpdateUser(userDto);
         }

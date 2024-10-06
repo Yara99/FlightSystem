@@ -82,7 +82,7 @@ namespace FlightSystem.Infra.Repository
         public UserDTO GetUserById(int userId)
         {
             var p = new DynamicParameters();
-            p.Add("U_ID", userId, DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("U_ID", userId, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
             // Query the database to get a single user by ID
             
