@@ -73,7 +73,26 @@ namespace FlightSystem.Infra.Repository
 
 
 
+        public List<UserDTO> GetAllUsers()
+        {
+            // Query the database to get all users
+            return _dbContext.Connection.Query<UserDTO>("USER_PKG.GetAllUsers", commandType: CommandType.StoredProcedure).ToList();
+        }
 
+        public UserDTO GetUserById(int userId)
+        {
+            var p = new DynamicParameters();
+            p.Add("U_ID", userId, DbType.Int32, direction: ParameterDirection.Input);
+
+            // Query the database to get a single user by ID
+            
+         var res =_dbContext.Connection.Query<UserDTO>("USER_PKG.GetUserById", p, commandType: CommandType.StoredProcedure);
+
+
+            return res.SingleOrDefault();
+
+
+        }
 
 
 

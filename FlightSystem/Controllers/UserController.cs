@@ -33,5 +33,21 @@ namespace FlightSystem.Controllers
             _userService.UpdateUser(userDto);
         }
 
+
+
+        [HttpGet]
+        [Route("GetAllUsers")]
+        public List<UserDTO> GetAllUsers()
+        {
+            return _userService.GetAllUsers();
+        }
+
+
+        [HttpGet]
+        [Route("getUserById/{id}")]
+        public UserDTO GetUserById(int userId)
+        {
+            return _userService.GetUserById(userId);
+        }
     }
 }

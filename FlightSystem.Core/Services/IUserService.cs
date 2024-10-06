@@ -12,5 +12,8 @@ namespace FlightSystem.Core.Services
         void CreateUser(UserDTO userDto);
 
         void UpdateUser(UserDTO userDto);
+
+        List<UserDTO> GetAllUsers();
+        UserDTO GetUserById(int userId);
     }
 }
