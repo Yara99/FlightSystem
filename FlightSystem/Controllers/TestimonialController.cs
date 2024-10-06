@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FlightSystem.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
+    
     public class TestimonialController : ControllerBase
     {
 
@@ -35,7 +36,7 @@ namespace FlightSystem.Controllers
         }
 
         [HttpGet]
-        List<TestimonialDTO> GetAllTestimonials()
+       public  List<TestimonialDTO> GetAllTestimonials()
         {
              return _testimonialService.GetAllTestimonials();  
         }
