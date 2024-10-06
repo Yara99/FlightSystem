@@ -36,7 +36,7 @@ namespace FlightSystem.Controllers
         }
 
         [HttpGet]
-        List<TestimonialDTO> GetAllTestimonials()
+        public List<TestimonialDTO> GetAllTestimonials()
         {
              return _testimonialService.GetAllTestimonials();  
         }
