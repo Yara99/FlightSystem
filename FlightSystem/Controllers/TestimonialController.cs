@@ -21,7 +21,7 @@ namespace FlightSystem.Controllers
 
         [HttpPost]
         [Route("CreateTestimonial")]
-        void CreateTestimonial(TestimonialDTO testimonial)
+        public void CreateTestimonial(TestimonialDTO testimonial)
         {
             _testimonialService.CreateTestimonial(testimonial);
             
@@ -29,23 +29,23 @@ namespace FlightSystem.Controllers
 
         [HttpDelete]
         [Route("DeleteTestimonial/{id}")]
-        void DeleteTestimonial(int testimonialId)
+        public void DeleteTestimonial(int testimonialId)
         {
             _testimonialService.DeleteTestimonial(testimonialId);
             
         }
 
         [HttpGet]
-       public  List<TestimonialDTO> GetAllTestimonials()
+        List<TestimonialDTO> GetAllTestimonials()
         {
              return _testimonialService.GetAllTestimonials();  
         }
 
-        [HttpPut("{id}/status")]
-        void ChangeTestimonialStatus(int testimonialId, string status)
+        [HttpPut]
+        [Route("ChangeTestimonialStatus/{testimonialId}/{status}")]
+        public void ChangeTestimonialStatus(int testimonialId, string status)
         {
             _testimonialService.ChangeTestimonialStatus(testimonialId, status);
-          
         }
     }
 }
