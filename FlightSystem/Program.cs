@@ -1,5 +1,9 @@
 using FlightSystem.Core.Common;
+using FlightSystem.Core.Repository;
+using FlightSystem.Core.Services;
 using FlightSystem.Infra.Common;
+using FlightSystem.Infra.Repository;
+using FlightSystem.Infra.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +13,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 
 
