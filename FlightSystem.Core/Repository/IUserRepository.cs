@@ -13,5 +13,7 @@ namespace FlightSystem.Core.Repository
 
         void UpdateUser(UserDTO userDto);
 
+        List<UserDTO> GetAllUsers();
+        UserDTO GetUserById(int userId);
     }
 }
