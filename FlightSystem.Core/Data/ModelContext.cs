@@ -198,7 +198,7 @@ namespace FlightSystem.Core.Data
                     .HasColumnType("NUMBER")
                     .HasColumnName("COUNTRYID");
 
-                entity.Property(e => e.Countryimage)
+                entity.Property(e => e.Cityimage)
                     .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("COUNTRYIMAGE");
