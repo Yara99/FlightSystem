@@ -12,7 +12,7 @@ namespace FlightSystem.Core.Data
 
         public decimal Id { get; set; }
         public string? Cityname { get; set; }
-        public string? Countryimage { get; set; }
+        public string? Cityimage { get; set; }
         public decimal? Countryid { get; set; }
 
         public virtual Country? Country { get; set; }
