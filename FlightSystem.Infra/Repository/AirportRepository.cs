@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using FlightSystem.Core.Common;
 using FlightSystem.Core.Data;
+using FlightSystem.Core.DTO;
 using FlightSystem.Core.Repository;
 using System;
 using System.Collections.Generic;
@@ -50,17 +51,17 @@ namespace FlightSystem.Infra.Repository
 
         }
 
-        public Airport FetchAirportById(int id)
+        public AirportDTO FetchAirportById(int id)
         {
             var p = new DynamicParameters();
             p.Add("p_ID",id,dbType:DbType.Int32,direction:ParameterDirection.Input);
-            var result = _dbContext.Connection.Query<Airport>("AirPort_Package.FetchAirportByID",
+            var result = _dbContext.Connection.Query<AirportDTO>("AirPort_Package.FetchAirportByID",
                 p,commandType:CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
-        public List<Airport> FetchAllAirports()
+        public List<AirportDTO> FetchAllAirports()
         {
-            var res = _dbContext.Connection.Query<Airport>("AirPort_Package.FetchAllAirports",
+            var res = _dbContext.Connection.Query<AirportDTO>("AirPort_Package.FetchAllAirports",
                 commandType:CommandType.StoredProcedure);
             return res.ToList();
 

@@ -1,5 +1,7 @@
 ﻿using FlightSystem.Core.Data;
+using FlightSystem.Core.DTO;
 using FlightSystem.Core.Repository;
+using FlightSystem.Core.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace FlightSystem.Infra.Services
 {
-    public class AirportService
+    public class AirportService :IAirportService
     {
         private readonly IAirportRepository _airportRepository;
 
@@ -28,11 +30,11 @@ namespace FlightSystem.Infra.Services
         {
             _airportRepository.DeleteAirport(id);
         }
-        public Airport FetchAirportById(int id)
+        public AirportDTO FetchAirportById(int id)
         {
             return _airportRepository.FetchAirportById(id);
         }
-        public List<Airport> FetchAllAirports()
+        public List<AirportDTO> FetchAllAirports()
         {
            return _airportRepository.FetchAllAirports();
         }

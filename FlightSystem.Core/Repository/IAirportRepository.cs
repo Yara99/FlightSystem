@@ -1,4 +1,5 @@
 ﻿using FlightSystem.Core.Data;
+using FlightSystem.Core.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace FlightSystem.Core.Repository
         public void CreateAirport(Airport airport);
         public void UpdateAirport(Airport airport);
         public void DeleteAirport(int id);
-        public Airport FetchAirportById(int id);
-        public List<Airport> FetchAllAirports();
+        public AirportDTO FetchAirportById(int id);
+        public List<AirportDTO> FetchAllAirports();
     }
 }

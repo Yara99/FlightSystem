@@ -1,4 +1,5 @@
 ﻿using FlightSystem.Core.Data;
+using FlightSystem.Core.DTO;
 using FlightSystem.Core.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -27,19 +28,19 @@ namespace FlightSystem.Controllers
             _airportService.UpdateAirport(airport);
         }
         [HttpDelete]
-        [Route("DeleteAirport")]
+        [Route("DeleteAirport/{id}")]
         public void DeleteAirport(int id)
         {
             _airportService.DeleteAirport(id);
         }
         [HttpGet]
         [Route("FetchAirportById/{id}")]
-        public Airport FetchAirportById(int id)
+        public AirportDTO FetchAirportById(int id)
         {
             return _airportService.FetchAirportById(id);
         }
         [HttpGet]
-        public List<Airport> FetchAllAirports()
+        public List<AirportDTO> FetchAllAirports()
         {
             return _airportService.FetchAllAirports();
         }
