@@ -201,7 +201,7 @@ namespace FlightSystem.Core.Data
                 entity.Property(e => e.Cityimage)
                     .HasMaxLength(255)
                     .IsUnicode(false)
-                    .HasColumnName("COUNTRYIMAGE");
+                    .HasColumnName("CITYIMAGE");
 
                 entity.HasOne(d => d.Country)
                     .WithMany(p => p.Cities)
