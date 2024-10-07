@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FlightSystem.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
+    
     public class TestimonialController : ControllerBase
     {
 
