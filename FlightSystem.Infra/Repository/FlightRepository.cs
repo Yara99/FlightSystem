@@ -72,6 +72,12 @@ namespace FlightSystem.Infra.Repository
                 commandType:CommandType.StoredProcedure);
             return result.ToList();
         }
+        public List<FlightDTO> FetchAllFlights()
+        {
+           var result = _dbContext.Connection.Query<FlightDTO>("Flight_Package.FetchAllFlights",
+               commandType:CommandType.StoredProcedure);
+            return result.ToList();
+        }
 
 
     }

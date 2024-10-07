@@ -44,6 +44,12 @@ namespace FlightSystem.Controllers
         public List<FlightDTO> FetchFlightByFlightNumber(string flightNumber)
         {
             return _flightService.FetchFlightByFlightNumber(flightNumber);
+
+        }
+        [HttpGet]
+        public List<FlightDTO> FetchAllFlights()
+        {
+           return _flightService.FetchAllFlights();
         }
     }
 }
