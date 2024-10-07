@@ -15,5 +15,6 @@ namespace FlightSystem.Core.Repository
         public void DeleteFlight(int id);
         public FlightDTO FetchFlightByID(int id);
         public List<FlightDTO> FetchFlightByFlightNumber(string flightNumber);
+        public List<FlightDTO> FetchAllFlights();
     }
 }

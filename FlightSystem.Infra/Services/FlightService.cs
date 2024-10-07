@@ -37,5 +37,9 @@ namespace FlightSystem.Infra.Services
         {
            return _flightRepository.FetchFlightByFlightNumber(flightNumber);
         }
+        public List<FlightDTO> FetchAllFlights()
+        {
+            return _flightRepository.FetchAllFlights();
+        }
     }
 }
