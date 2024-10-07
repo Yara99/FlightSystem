@@ -33,6 +33,10 @@ builder.Services.AddScoped<ICountryService, CountryService>();
 builder.Services.AddScoped<IPartnerRepository, PartnerRepository>();
 builder.Services.AddScoped<IPartnerService, PartnerService>();
 
+builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
+builder.Services.AddScoped<IReservationService, ReservationService>();
+
+
 
 var app = builder.Build();
 
