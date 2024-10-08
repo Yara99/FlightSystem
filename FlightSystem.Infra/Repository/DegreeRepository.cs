@@ -30,7 +30,7 @@ namespace FlightSystem.Infra.Repository
         public void UpdateDegree(Degree degree)
         {
             var p = new DynamicParameters();
-            p.Add("degid", degree.Degreename, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("degid", degree.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Degree_Name", degree.Degreename, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("degree_Package.UpdateDegree", p, commandType: CommandType.StoredProcedure);
 
