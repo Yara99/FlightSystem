@@ -49,6 +49,8 @@ builder.Services.AddScoped<IDegreeFacilityService, DegreeFacilityService>();
 builder.Services.AddScoped<IAirlineRepository, AirlineRepository>();
 builder.Services.AddScoped<IAirlineService, AirlineService>();
 
+builder.Services.AddScoped<ICityRepository,CityRepository >();
+builder.Services.AddScoped<ICityService, CityService>();
 
 var app = builder.Build();
 
