@@ -37,6 +37,10 @@ builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 builder.Services.AddScoped<IReservationService, ReservationService>();
 
 
+builder.Services.AddScoped<IDegreeRepository, DegreeRepository>();
+builder.Services.AddScoped<IDegreeService, DegreeService>();
+
+
 
 var app = builder.Build();
 
