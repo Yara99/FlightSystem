@@ -52,7 +52,7 @@ namespace FlightSystem.Controllers
 
         }
         [HttpGet]
-        [Route("GetCitiesByCountry")]
+        [Route("GetCitiesByCountry/{countryId}")]
        public List<City> GetCitiesByCountry(int countryId)
         {
             return _cityService.GetCitiesByCountry(countryId);
