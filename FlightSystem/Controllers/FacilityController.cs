@@ -16,7 +16,7 @@ namespace FlightSystem.Controllers
         }
 
         [HttpGet]
-        public List<Facility> FetchAllAirports()
+        public List<Facility> GetAllFacility()
         {
             return _facilityService.GetAllFacility();
         }
