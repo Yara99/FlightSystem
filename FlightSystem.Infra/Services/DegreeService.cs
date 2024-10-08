@@ -24,7 +24,7 @@ namespace FlightSystem.Infra.Services
         }
         public void UpdateDegree(Degree degree)
         {
-            _degreeRepository.CreateDegree(degree);
+            _degreeRepository.UpdateDegree(degree);
         }
         public void DeleteDegree(int id)
         {
