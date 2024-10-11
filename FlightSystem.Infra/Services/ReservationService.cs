@@ -33,5 +33,11 @@ namespace FlightSystem.Infra.Services
         {
             return _reservationRepository.FetchReservationByUserID(userId);
         }
+
+        public List<SearchReservationDTO> SearchReservation(SearchReservationDTO obj)
+        {
+            return _reservationRepository.SearchReservation(obj);
+        }
+
     }
 }

@@ -54,5 +54,20 @@ namespace FlightSystem.Infra.Repository
         }
         
 
+        public List<SearchReservationDTO> SearchReservation(SearchReservationDTO obj)
+        {
+            var p = new DynamicParameters();
+            p.Add("fName", obj.Firstname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("lName", obj.Lastname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("flightNum", obj.Flightnumber, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("DateFrom", obj.DateFrom, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("DateTo", obj.DateTo, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+
+            var res = _dbContext.Connection.Query<SearchReservationDTO>("Reservation_Package.SearchReservation", p, commandType: CommandType.StoredProcedure);
+
+            return res.ToList();
+        }
+
+
     }
 }

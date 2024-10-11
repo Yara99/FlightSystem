@@ -38,5 +38,13 @@ namespace FlightSystem.Controllers
         {
             return _reservationService.FetchReservationByUserID(userId);
         }
+
+        [HttpPost]
+        [Route("SearchReservation")]
+        public List<SearchReservationDTO> SearchReservation(SearchReservationDTO obj)
+        {
+            return _reservationService.SearchReservation(obj);
+        }
+
     }
 }
