@@ -228,6 +228,11 @@ namespace FlightSystem.Core.Data
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("CONTACTPHONE");
+
+                entity.Property(e => e.Contactaddress)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("CONTACTADDRESS");
             });
 
             modelBuilder.Entity<Country>(entity =>

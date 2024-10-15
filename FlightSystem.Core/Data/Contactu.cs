@@ -8,5 +8,6 @@ namespace FlightSystem.Core.Data
         public decimal Id { get; set; }
         public string? Contactemail { get; set; }
         public string? Contactphone { get; set; }
+        public string? Contactaddress { get; set; }
     }
 }
