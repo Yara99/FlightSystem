@@ -3,6 +3,7 @@ using FlightSystem.Core.Common;
 using FlightSystem.Core.Data;
 using FlightSystem.Core.DTO;
 using FlightSystem.Core.Repository;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -74,9 +75,21 @@ namespace FlightSystem.Infra.Repository
         }
         public List<FlightDTO> FetchAllFlights()
         {
-           var result = _dbContext.Connection.Query<FlightDTO>("Flight_Package.FetchAllFlights",
-               commandType:CommandType.StoredProcedure);
+            var result = _dbContext.Connection.Query<FlightDTO>("Flight_Package.FetchAllFlights",
+                commandType: CommandType.StoredProcedure);
             return result.ToList();
+        }
+        public List<ReturnFlightSearch> FetchFlightBasedOnUserSearch(FlightForSearchDTO obj)
+        {
+            var p = new DynamicParameters();
+            p.Add("p_DepartureCityID", obj.DeparturePlaceId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_DestinationCityID", obj.DestenationPlaceId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_DepartureDate", obj.Departuredate, dbType: (DbType?)OracleDbType.Date, direction: ParameterDirection.Input);
+            p.Add("p_ClassTypeID", obj.DegreenameId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            var result = _dbContext.Connection.Query<ReturnFlightSearch>("Flight_Package.SearchForFlights", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+
         }
 
 
