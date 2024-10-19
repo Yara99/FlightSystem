@@ -49,7 +49,14 @@ namespace FlightSystem.Controllers
         [HttpGet]
         public List<FlightDTO> FetchAllFlights()
         {
-           return _flightService.FetchAllFlights();
+            return _flightService.FetchAllFlights();
         }
+        [HttpPost]
+        [Route("FetchFlightBasedOnUserSearch")]
+        public List<ReturnFlightSearch> FetchFlightBasedOnUserSearch(FlightForSearchDTO obj)
+        {
+            return _flightService.FetchFlightBasedOnUserSearch(obj);
+        }
+
     }
 }

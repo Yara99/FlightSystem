@@ -41,5 +41,9 @@ namespace FlightSystem.Infra.Services
         {
             return _flightRepository.FetchAllFlights();
         }
+        public List<ReturnFlightSearch> FetchFlightBasedOnUserSearch(FlightForSearchDTO obj)
+        {
+           return _flightRepository.FetchFlightBasedOnUserSearch(obj);
+        }
     }
 }
