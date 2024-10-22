@@ -38,7 +38,9 @@ namespace FlightSystem.Infra.Services
                 var claims = new List<Claim>
                 {
                      new Claim(ClaimTypes.Name, result.Username),
-                     new Claim(ClaimTypes.Role, result.Roleid.ToString())
+                     new Claim("roleid", result.Roleid.ToString()),
+                     new Claim("userid", result.Userid.ToString()),
+                     new Claim("airlineid", result.Airlineid.ToString())
                 };
 
                 var tokeOptions = new JwtSecurityToken(
