@@ -57,7 +57,7 @@ namespace FlightSystem.Controllers
         {
             return _flightService.FetchFlightBasedOnUserSearch(obj);
         }
-        [HttpPost]
+        [HttpGet]
         [Route("GetAllFacilitesByDegreeId/{id}")]
         public List<Facility> GetAllFacilitesByDegreeId(int id)
         {
