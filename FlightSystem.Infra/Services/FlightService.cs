@@ -43,7 +43,11 @@ namespace FlightSystem.Infra.Services
         }
         public List<ReturnFlightSearch> FetchFlightBasedOnUserSearch(FlightForSearchDTO obj)
         {
-           return _flightRepository.FetchFlightBasedOnUserSearch(obj);
+            return _flightRepository.FetchFlightBasedOnUserSearch(obj);
+        }
+        public List<Facility> GetAllFacilitesByDegreeId(Degree degree)
+        {
+            return _flightRepository.GetAllFacilitesByDegreeId(degree);
         }
     }
 }
