@@ -58,10 +58,10 @@ namespace FlightSystem.Controllers
             return _flightService.FetchFlightBasedOnUserSearch(obj);
         }
         [HttpPost]
-        [Route("GetAllFacilitesByDegreeId")]
-        public List<Facility> GetAllFacilitesByDegreeId(Degree degree)
+        [Route("GetAllFacilitesByDegreeId/{id}")]
+        public List<Facility> GetAllFacilitesByDegreeId(int id)
         {
-            return _flightService.GetAllFacilitesByDegreeId(degree);
+            return _flightService.GetAllFacilitesByDegreeId(id);
         }
 
     }

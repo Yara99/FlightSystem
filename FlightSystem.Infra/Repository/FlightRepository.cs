@@ -90,10 +90,10 @@ namespace FlightSystem.Infra.Repository
             var result = _dbContext.Connection.Query<ReturnFlightSearch>("Flight_Package.SearchForFlights",p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-        public List<Facility> GetAllFacilitesByDegreeId(Degree degree)
+        public List<Facility> GetAllFacilitesByDegreeId(int id)
         {
             var p = new DynamicParameters();
-            p.Add("p_Degreeid",degree.Id,dbType:DbType.Int32,direction:ParameterDirection.Input);
+            p.Add("p_Degreeid",id,dbType:DbType.Int32,direction:ParameterDirection.Input);
             var result = _dbContext.Connection.Query<Facility>("Flight_Package.FetchAllFacilitesByDegreeId",p,
                 commandType:CommandType.StoredProcedure);
             return result.ToList();

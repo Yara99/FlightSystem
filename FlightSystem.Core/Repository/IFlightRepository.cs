@@ -17,6 +17,6 @@ namespace FlightSystem.Core.Repository
         public List<FlightDTO> FetchFlightByFlightNumber(string flightNumber);
         public List<FlightDTO> FetchAllFlights();
         public List<ReturnFlightSearch> FetchFlightBasedOnUserSearch(FlightForSearchDTO obj);
-        public List<Facility> GetAllFacilitesByDegreeId(Degree degree);
+        public List<Facility> GetAllFacilitesByDegreeId(int id);
     }
 }
