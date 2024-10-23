@@ -49,5 +49,29 @@ namespace FlightSystem.Controllers
         {
             return _userService.GetUserById(userId);
         }
+
+
+
+        [Route("uploadImage")]
+        [HttpPost]
+        public UserDTO UploadImage()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            /*var fullPath = Path.Combine("Images", fileName);*/
+            //for angular project
+            var fullPath = Path.Combine("C:\\Users\\juman\\Desktop\\FlightProject\\src\\assets\\Images", fileName);
+
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            UserDTO item = new UserDTO();
+            item.Image = fileName;
+            return item;
+        }
+
+
+
     }
 }
