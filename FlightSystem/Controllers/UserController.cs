@@ -45,9 +45,9 @@ namespace FlightSystem.Controllers
 
         [HttpGet]
         [Route("getUserById/{id}")]
-        public UserDTO GetUserById(int userId)
+        public UserDTO GetUserById(int id )
         {
-            return _userService.GetUserById(userId);
+            return _userService.GetUserById(id);
         }
 
 
@@ -70,8 +70,6 @@ namespace FlightSystem.Controllers
             item.Image = fileName;
             return item;
         }
-
-
 
     }
 }
