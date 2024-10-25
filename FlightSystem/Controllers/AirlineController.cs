@@ -49,6 +49,22 @@ namespace FlightSystem.Controllers
             _airlineService.ChangeAirlineActivationStatus(id, status);
         }
 
+        [Route("uploadImage")]
+        [HttpPost]
+        public AirlineDTO UploadImage()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine("C:\\Users\\juman\\Desktop\\FlightProject\\src\\assets\\Images", fileName);
+
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            AirlineDTO item = new AirlineDTO();
+            item.Airlineimage = fileName;
+            return item;
+        }
 
 
     }

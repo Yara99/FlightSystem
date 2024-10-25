@@ -45,9 +45,9 @@ namespace FlightSystem.Controllers
 
         [HttpGet]
         [Route("getUserById/{id}")]
-        public UserDTO GetUserById(int userId)
+        public UserDTO GetUserById(int id )
         {
-            return _userService.GetUserById(userId);
+            return _userService.GetUserById(id);
         }
 
 
@@ -60,7 +60,7 @@ namespace FlightSystem.Controllers
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
             /*var fullPath = Path.Combine("Images", fileName);*/
             //for angular project
-            var fullPath = Path.Combine("C:\\Users\\juman\\Desktop\\FlightProject\\src\\assets\\Images", fileName);
+            var fullPath = Path.Combine("C:\\Users\\DELL\\Desktop\\FlightProject\\FlightProject\\src\\assets\\Images", fileName);
 
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
@@ -70,8 +70,6 @@ namespace FlightSystem.Controllers
             item.Image = fileName;
             return item;
         }
-
-
 
     }
 }
