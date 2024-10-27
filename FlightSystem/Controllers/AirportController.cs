@@ -45,6 +45,23 @@ namespace FlightSystem.Controllers
             return _airportService.FetchAllAirports();
         }
 
+        [Route("uploadImage")]
+        [HttpPost]
+        public AirportDTO UploadImage()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            /*var fullPath = Path.Combine("Images", fileName);*/
+            //for angular project
+            var fullPath = Path.Combine("C:\\Users\\DELL\\Desktop\\FlightProject\\FlightProject\\src\\assets\\Images", fileName);
 
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            AirportDTO item = new AirportDTO();
+            item.Airportimage = fileName;
+            return item;
+        }
     }
 }
