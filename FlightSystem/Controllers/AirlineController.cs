@@ -66,6 +66,13 @@ namespace FlightSystem.Controllers
             return item;
         }
 
+        [HttpDelete]
+        [Route("deleteAirline/{id}")]
+        public void DeleteAirline(int id) {
+
+            _airlineService.DeleteAirline(id);
+        }
+
 
 
 
