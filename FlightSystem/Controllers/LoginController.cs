@@ -31,6 +31,23 @@ namespace FlightSystem.Controllers
                 return Ok(token);
             }
         }
+        [HttpPost]
+        [Route("AirlineLogin")]
+
+        public IActionResult AirlineAuth(Login login)
+        {
+            var token = _loginService.AirlineAuth(login);
+            if (token == null)
+            {
+                return Unauthorized();
+            }
+            else
+            {
+                return Ok(token);
+            }
+
+
+        }
 
 
     }
