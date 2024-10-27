@@ -1,4 +1,5 @@
 ﻿using FlightSystem.Core.Data;
+using FlightSystem.Core.DTO;
 using FlightSystem.Core.Repository;
 using FlightSystem.Core.Services;
 using Microsoft.IdentityModel.Tokens;
@@ -53,7 +54,35 @@ namespace FlightSystem.Infra.Services
 
             }
         }
+        public string AirlineAuth(Login login)
+        {
+            var result = _loginRepository.AirlineAuth(login);//username + roleid if matching or null if no match
 
+            if (result == null)
+            {
+                return null;
+            }
+            else
+            {
+                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SuperSecretKey@ApiCourse123456"));// at least 256 bit 32byte 
+                var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+
+                var claims = new List<Claim>
+                {
+                     new Claim("username", result.Username),
+                     new Claim("roleid", result.Roleid.ToString()),
+                     new Claim("airlineid", result.Airlineid.ToString())
+                };
+
+                var tokeOptions = new JwtSecurityToken(
+                                claims: claims,
+                                expires: DateTime.Now.AddHours(12),
+                                signingCredentials: signinCredentials
+                        );
+                var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
+                return tokenString;
+            }
+        }
 
 
     }
