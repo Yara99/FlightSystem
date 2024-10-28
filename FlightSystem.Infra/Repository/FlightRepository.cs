@@ -98,6 +98,13 @@ namespace FlightSystem.Infra.Repository
                 commandType:CommandType.StoredProcedure);
             return result.ToList();
         }
+        public List<FlightDTO> GetAllFlightsByAirlineID(int airlineId)
+        {
+            var p = new DynamicParameters();
+            p.Add("p_AirlineID", airlineId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.Query<FlightDTO>("Flight_Package.GetAllFlightsByAirlineID", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
 
 
     }

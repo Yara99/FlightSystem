@@ -49,5 +49,10 @@ namespace FlightSystem.Infra.Services
         {
             return _flightRepository.GetAllFacilitesByDegreeId(id);
         }
+        public List<FlightDTO> GetAllFlightsByAirlineID(int airlineId)
+        {
+            return _flightRepository.GetAllFlightsByAirlineID(airlineId);
+        }
+
     }
 }
