@@ -21,6 +21,10 @@ namespace FlightSystem.Core.DTO
         public string? DepartureCountryName { get; set; }
         public string? DestinationCityName { get; set; }
         public string? DestinationCountryName { get; set; }
+        public string? DepartureAirportName { get; set; }
+
+        public string? DestinationAirportName { get; set; }
+
 
 
 
