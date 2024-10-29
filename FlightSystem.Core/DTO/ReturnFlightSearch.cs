@@ -17,6 +17,12 @@ namespace FlightSystem.Core.DTO
         public DateTime? Departuredate { get; set; }
         public DateTime? Destinationdate { get; set; }
         public decimal DegreeId { get; set; }
+        public string? DepartureCityName { get; set; }
+        public string? DepartureCountryName { get; set; }
+        public string? DestinationCityName { get; set; }
+        public string? DestinationCountryName { get; set; }
+
+
 
 
 
