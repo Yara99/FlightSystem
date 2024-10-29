@@ -98,6 +98,7 @@ namespace FlightSystem.Infra.Repository
                 commandType:CommandType.StoredProcedure);
             return result.ToList();
         }
+
         public List<FlightDTO> GetAllFlightsByAirlineID(int airlineId)
         {
             var p = new DynamicParameters();

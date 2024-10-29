@@ -63,6 +63,7 @@ namespace FlightSystem.Controllers
         {
             return _flightService.GetAllFacilitesByDegreeId(id);
         }
+
         [HttpGet]
         [Route("GetAllFlightsByAirlineID/{airlineId}")]
         public List<FlightDTO> GetAllFlightsByAirlineID(int airlineId)
