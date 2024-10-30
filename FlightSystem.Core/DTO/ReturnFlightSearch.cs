@@ -8,6 +8,7 @@ namespace FlightSystem.Core.DTO
 {
     public class ReturnFlightSearch
     {
+        public decimal FlightId { get; set; }
         public string? Airlinename { get; set; }
         public string? Airlineimage { get; set; }
         public string? DepartureIatacode { get; set; }
