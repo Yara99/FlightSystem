@@ -29,5 +29,23 @@ namespace FlightSystem.Controllers
             _homeService.UpdateHome(home);
         }
 
+
+        [Route("uploadImage")]
+        [HttpPost]
+        public Home UploadImage()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine("C:\\Users\\juman\\Desktop\\FlightProject\\src\\assets\\Images", fileName);
+
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            Home item = new Home();
+            item.Homeimage = fileName;
+            return item;
+        }
+
     }
 }
