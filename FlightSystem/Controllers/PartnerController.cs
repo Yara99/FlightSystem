@@ -1,4 +1,5 @@
-﻿using FlightSystem.Core.DTO;
+﻿using FlightSystem.Core.Data;
+using FlightSystem.Core.DTO;
 using FlightSystem.Core.Services;
 using FlightSystem.Infra.Services;
 using Microsoft.AspNetCore.Http;
@@ -21,9 +22,9 @@ namespace FlightSystem.Controllers
 
         [HttpPost]
         [Route("CreatePartner")]
-        public void CreatePartner(PartnerDTO partnerDTO)
+        public void CreatePartner(Partner partner)
         {
-            _partnerService.CreatePartner(partnerDTO);
+            _partnerService.CreatePartner(partner);
         }
 
 

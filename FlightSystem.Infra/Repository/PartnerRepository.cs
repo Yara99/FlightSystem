@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using FlightSystem.Core.Common;
+using FlightSystem.Core.Data;
 using FlightSystem.Core.DTO;
 using FlightSystem.Core.Repository;
 using Oracle.ManagedDataAccess.Client;
@@ -23,13 +24,13 @@ namespace FlightSystem.Infra.Repository
 
 
 
-        public void CreatePartner(PartnerDTO partnerDTO)
+        public void CreatePartner(Partner partner)
         {
             var p = new DynamicParameters();
-            p.Add("F_NAME", partnerDTO.PartnerFirstName, DbType.String, ParameterDirection.Input);
-            p.Add("L_NAME", partnerDTO.PartnerLastName, DbType.String, ParameterDirection.Input);
-            p.Add("NATIONAL_NUM", partnerDTO.Nationalnumber, DbType.String, ParameterDirection.Input);
-            p.Add("U_ID", partnerDTO.Userid, DbType.Int32, ParameterDirection.Input);
+            p.Add("F_NAME", partner.Firstname, DbType.String, ParameterDirection.Input);
+            p.Add("L_NAME", partner.Lastname, DbType.String, ParameterDirection.Input);
+            p.Add("NATIONAL_NUM", partner.Nationalnumber, DbType.String, ParameterDirection.Input);
+            p.Add("U_ID", partner.Userid, DbType.Int32, ParameterDirection.Input);
 
             _dbContext.Connection.Execute("PARTENER_PKG.CreatePartner", p, commandType: CommandType.StoredProcedure);
         }

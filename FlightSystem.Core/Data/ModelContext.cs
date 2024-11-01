@@ -165,13 +165,13 @@ namespace FlightSystem.Core.Data
                     .HasColumnType("NUMBER")
                     .HasColumnName("BALANCE");
 
-                entity.Property(e => e.Cardnumber)
-                    .HasMaxLength(255)
+                entity.Property(e => e.Cardnumber).
+                HasColumnType("NUMBER")
                     .IsUnicode(false)
                     .HasColumnName("CARDNUMBER");
 
                 entity.Property(e => e.Cvv)
-                    .HasMaxLength(10)
+                    .HasColumnType("NUMBER")
                     .IsUnicode(false)
                     .HasColumnName("CVV");
 
