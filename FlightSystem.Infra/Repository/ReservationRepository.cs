@@ -3,6 +3,7 @@ using FlightSystem.Core.Common;
 using FlightSystem.Core.Data;
 using FlightSystem.Core.DTO;
 using FlightSystem.Core.Repository;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -67,6 +68,24 @@ namespace FlightSystem.Infra.Repository
 
             return res.ToList();
         }
+
+
+        public List<MonthlyPriceDTO> GetMonthlyTotalPrice(DateTime fromDate, DateTime toDate)
+        {
+            var p = new DynamicParameters();
+            p.Add("from_date", fromDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("to_date", toDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+           
+            var result = _dbContext.Connection.Query<MonthlyPriceDTO>( "Reservation_Package.GetMonthlyTotalPrice",p,commandType: CommandType.StoredProcedure);
+
+            return result.ToList();
+        }
+
+
+
+
+
+
 
 
     }

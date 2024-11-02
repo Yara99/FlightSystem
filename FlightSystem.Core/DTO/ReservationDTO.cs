@@ -17,5 +17,7 @@ namespace FlightSystem.Core.DTO
         public string? Flightnumber { get; set; }
         public DateTime? Departuredate { get; set; }
         public DateTime? Destinationdate { get; set; }
+
+
     }
 }

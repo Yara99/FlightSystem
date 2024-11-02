@@ -39,5 +39,12 @@ namespace FlightSystem.Infra.Services
             return _reservationRepository.SearchReservation(obj);
         }
 
+
+        public List<MonthlyPriceDTO> GetMonthlyTotalPrice(DateTime fromDate, DateTime toDate)
+        {
+            // Call the repository method to get monthly totals
+            return _reservationRepository.GetMonthlyTotalPrice(fromDate, toDate);
+        }
+
     }
 }
