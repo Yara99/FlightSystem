@@ -37,5 +37,10 @@ namespace FlightSystem.Infra.Services
         {
             _airlineRepository.ChangeAirlineActivationStatus(id, status);
         }
+
+        public void DeleteAirline(int id)
+        {
+            _airlineRepository.DeleteAirline(id);
+        }
     }
 }

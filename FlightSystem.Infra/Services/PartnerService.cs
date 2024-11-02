@@ -1,4 +1,5 @@
-﻿using FlightSystem.Core.DTO;
+﻿using FlightSystem.Core.Data;
+using FlightSystem.Core.DTO;
 using FlightSystem.Core.Repository;
 using FlightSystem.Core.Services;
 using FlightSystem.Infra.Repository;
@@ -21,9 +22,9 @@ namespace FlightSystem.Infra.Services
         }
 
 
-        public void CreatePartner(PartnerDTO partnerDTO)
+        public void CreatePartner(Partner partner)
         {
-            _partnerRepository.CreatePartner(partnerDTO);
+            _partnerRepository.CreatePartner(partner);
         }
 
         public List<PartnerDTO> GetPartnersByUser(int userId)

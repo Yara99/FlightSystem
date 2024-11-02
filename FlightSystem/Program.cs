@@ -81,6 +81,9 @@ builder.Services.AddScoped<IHomeService, HomeService>();
 builder.Services.AddScoped<IContactRepository, ContactRepository>();
 builder.Services.AddScoped<IContactService, ContactService>();
 
+builder.Services.AddScoped<IBankRepository, BankRepository>();
+builder.Services.AddScoped<IBankService, BankService>();
+
 
 
 builder.Services.AddAuthentication(opt => {

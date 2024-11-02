@@ -14,6 +14,7 @@ namespace FlightSystem.Core.Repository
         public void CreateAirline(AirlineDTO airlinedto);
         public void UpdateAirline(AirlineDTO airlinedto);
         public void ChangeAirlineActivationStatus(int id, string status);
+        public void DeleteAirline(int id);
 
     }
 }

@@ -1,5 +1,4 @@
 ﻿using FlightSystem.Core.Data;
-using FlightSystem.Core.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace FlightSystem.Core.Services
 {
-    public interface IPartnerService
+    public interface IBankService
     {
-        public void CreatePartner(Partner partner);
-        List<PartnerDTO> GetPartnersByUser(int userId);
+        public bool PaymentCheck(Bank bank);
+
     }
 }

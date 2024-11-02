@@ -9,9 +9,9 @@ namespace FlightSystem.Core.DTO
     public class FlightForSearchDTO
     {
         public DateTime? Departuredate { get; set; }
-        public decimal? DeparturePlaceId { get; set; }
-        public decimal? DestenationPlaceId { get; set; }
-        public decimal? DegreenameId { get; set; }
+        public int? DeparturePlaceId { get; set; }
+        public int? DestenationPlaceId { get; set; }
+        public int? DegreenameId { get; set; }
 
 
     }

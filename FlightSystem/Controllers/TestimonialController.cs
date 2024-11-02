@@ -29,9 +29,9 @@ namespace FlightSystem.Controllers
 
         [HttpDelete]
         [Route("DeleteTestimonial/{id}")]
-        public void DeleteTestimonial(int testimonialId)
+        public void DeleteTestimonial(int id)
         {
-            _testimonialService.DeleteTestimonial(testimonialId);
+            _testimonialService.DeleteTestimonial(id);
             
         }
 

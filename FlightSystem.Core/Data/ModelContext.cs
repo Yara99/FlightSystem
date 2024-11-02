@@ -40,13 +40,13 @@ namespace FlightSystem.Core.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseOracle("User Id=C##Yara4;PASSWORD=Test321;DATA SOURCE=localhost:1521/xe");
+                optionsBuilder.UseOracle("User Id=C##Final;PASSWORD=Test321;DATA SOURCE=localhost:1521/xe");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("C##YARA4")
+            modelBuilder.HasDefaultSchema("C##Final")
                 .UseCollation("USING_NLS_COMP");
 
             modelBuilder.Entity<Aboutu>(entity =>
@@ -165,13 +165,13 @@ namespace FlightSystem.Core.Data
                     .HasColumnType("NUMBER")
                     .HasColumnName("BALANCE");
 
-                entity.Property(e => e.Cardnumber)
-                    .HasMaxLength(255)
+                entity.Property(e => e.Cardnumber).
+                HasColumnType("NUMBER")
                     .IsUnicode(false)
                     .HasColumnName("CARDNUMBER");
 
                 entity.Property(e => e.Cvv)
-                    .HasMaxLength(10)
+                    .HasColumnType("NUMBER")
                     .IsUnicode(false)
                     .HasColumnName("CVV");
 

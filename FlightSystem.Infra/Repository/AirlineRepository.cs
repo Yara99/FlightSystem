@@ -74,6 +74,13 @@ namespace FlightSystem.Infra.Repository
             _dbContext.Connection.Execute("airline_Package.Change_Activation_Status", p, commandType: CommandType.StoredProcedure);
         }
 
+        public void DeleteAirline(int id)
+        {
+            var p = new DynamicParameters();
+            p.Add("a_id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            _dbContext.Connection.Execute("airline_Package.Delete_Airline", p, commandType: CommandType.StoredProcedure);
+
+        }
 
     }
 }
