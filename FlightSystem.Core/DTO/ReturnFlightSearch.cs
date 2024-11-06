@@ -15,6 +15,8 @@ namespace FlightSystem.Core.DTO
         public string? DestinationIatacode { get; set; }
         public string? Degreename { get; set; }
         public string? Price { get; set; }
+        public string? FlightNumber { get; set; }
+
         public DateTime? Departuredate { get; set; }
         public DateTime? Destinationdate { get; set; }
         public decimal DegreeId { get; set; }

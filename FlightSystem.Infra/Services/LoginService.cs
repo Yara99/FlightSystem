@@ -41,7 +41,9 @@ namespace FlightSystem.Infra.Services
                      new Claim("username", result.Username),
                      new Claim("roleid", result.Roleid.ToString()),
                      new Claim("userid", result.Userid.ToString()),
-                     new Claim("airlineid", result.Airlineid.ToString())
+                     new Claim("airlineid", result.Airlineid.ToString()),
+                    new Claim("email", result.Email.ToString())
+
                 };
 
                 var tokeOptions = new JwtSecurityToken(
