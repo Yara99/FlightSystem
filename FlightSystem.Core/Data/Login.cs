@@ -11,6 +11,7 @@ namespace FlightSystem.Core.Data
         public decimal? Roleid { get; set; }
         public decimal? Userid { get; set; }
         public decimal? Airlineid { get; set; }
+        public string? Email { get; set; }
 
         public virtual Airline? Airline { get; set; }
         public virtual Role? Role { get; set; }

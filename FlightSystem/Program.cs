@@ -1,6 +1,7 @@
 using FlightSystem.Core.Common;
 using FlightSystem.Core.Repository;
 using FlightSystem.Core.Services;
+using FlightSystem.Infra;
 using FlightSystem.Infra.Common;
 using FlightSystem.Infra.Repository;
 using FlightSystem.Infra.Services;
@@ -21,6 +22,7 @@ builder.Services.AddCors(corsOptions =>
     });
 });
 
+builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 
 
 
@@ -83,6 +85,11 @@ builder.Services.AddScoped<IContactService, ContactService>();
 
 builder.Services.AddScoped<IBankRepository, BankRepository>();
 builder.Services.AddScoped<IBankService, BankService>();
+
+builder.Services.AddScoped<IPdfService, PdfService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+
 
 
 
