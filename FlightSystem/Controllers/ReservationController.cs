@@ -46,15 +46,25 @@ namespace FlightSystem.Controllers
             return _reservationService.SearchReservation(obj);
         }
 
+     
+
+
         [HttpGet]
-        [Route("monthlytotalprice")]
-
-
-        public List<MonthlyPriceDTO> GetMonthlyTotalPrice(DateTime fromDate, DateTime toDate)
-        {
-            // Call the repository method to get monthly totals
-            return _reservationService.GetMonthlyTotalPrice(fromDate, toDate);
+        [Route("entity-counts")]
+        public CountDTO GetEntityCounts() 
+        { 
+            return _reservationService.GetEntityCounts(); 
         }
+
+
+        [HttpGet("totalBenefits")]
+        public IActionResult CalculateTotalBenefits(DateTime startDate, DateTime endDate)
+        {
+            var totalBenefits = _reservationService.CalculateTotalBenefits(startDate, endDate);
+            return Ok(totalBenefits);
+        }
+
+
 
     }
 }

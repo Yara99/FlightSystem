@@ -4,9 +4,12 @@ using FlightSystem.Core.Data;
 using FlightSystem.Core.DTO;
 using FlightSystem.Core.Repository;
 using Microsoft.Data.SqlClient;
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,23 +73,45 @@ namespace FlightSystem.Infra.Repository
         }
 
 
-        public List<MonthlyPriceDTO> GetMonthlyTotalPrice(DateTime fromDate, DateTime toDate)
-        {
-            var p = new DynamicParameters();
-            p.Add("from_date", fromDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            p.Add("to_date", toDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-           
-            var result = _dbContext.Connection.Query<MonthlyPriceDTO>( "Reservation_Package.GetMonthlyTotalPrice",p,commandType: CommandType.StoredProcedure);
+    
 
-            return result.ToList();
+
+        public CountDTO GetEntityCounts()
+        {
+            var counts = new CountDTO();
+
+            var command = new OracleCommand("Reservation_Package.GetEntityCounts", (OracleConnection)_dbContext.Connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            command.Parameters.Add("p_airports", OracleDbType.Int32, ParameterDirection.Output);
+            command.Parameters.Add("p_users", OracleDbType.Int32, ParameterDirection.Output);
+            command.Parameters.Add("p_reservations", OracleDbType.Int32, ParameterDirection.Output);
+            command.Parameters.Add("p_airlines", OracleDbType.Int32, ParameterDirection.Output);
+
+            command.ExecuteNonQuery();
+            // Convert OracleDecimal to int
+            counts.Airports = ((OracleDecimal)command.Parameters["p_airports"].Value).ToInt32();
+            counts.Users = ((OracleDecimal)command.Parameters["p_users"].Value).ToInt32();
+            counts.Reservations = ((OracleDecimal)command.Parameters["p_reservations"].Value).ToInt32();
+            counts.Airlines = ((OracleDecimal)command.Parameters["p_airlines"].Value).ToInt32();
+
+            return counts;
         }
 
 
+        public decimal CalculateTotalBenefits(DateTime startDate, DateTime endDate)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("startDate", startDate, DbType.Date);
+            parameters.Add("endDate", endDate, DbType.Date);
+            parameters.Add("totalBenefits", dbType: DbType.Decimal, direction: ParameterDirection.Output);
 
+            _dbContext.Connection.Execute("Reservation_Package.Calculate_Total_Benefits", parameters, commandType: CommandType.StoredProcedure);
 
-
-
-
+            return parameters.Get<decimal>("totalBenefits");
+        }
 
     }
 }

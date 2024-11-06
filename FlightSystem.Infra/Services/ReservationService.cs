@@ -40,11 +40,18 @@ namespace FlightSystem.Infra.Services
         }
 
 
-        public List<MonthlyPriceDTO> GetMonthlyTotalPrice(DateTime fromDate, DateTime toDate)
+     
+        public CountDTO GetEntityCounts()
         {
-            // Call the repository method to get monthly totals
-            return _reservationRepository.GetMonthlyTotalPrice(fromDate, toDate);
+
+        return _reservationRepository.GetEntityCounts(); 
         }
 
+        public decimal CalculateTotalBenefits(DateTime startDate, DateTime endDate)
+        {
+            return _reservationRepository.CalculateTotalBenefits(startDate, endDate);
+        }
+
+        
     }
 }

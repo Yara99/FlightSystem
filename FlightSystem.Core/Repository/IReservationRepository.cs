@@ -17,6 +17,9 @@ namespace FlightSystem.Core.Repository
 
         public List<SearchReservationDTO> SearchReservation(SearchReservationDTO obj);
 
-        public List<MonthlyPriceDTO> GetMonthlyTotalPrice(DateTime fromDate, DateTime toDate);
+        
+        public CountDTO GetEntityCounts();
+
+        public decimal CalculateTotalBenefits(DateTime startDate, DateTime endDate);
     }
 }
