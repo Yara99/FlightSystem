@@ -1,5 +1,7 @@
 ﻿using FlightSystem.Core.Data;
+using FlightSystem.Core.DTO;
 using FlightSystem.Core.Services;
+using FlightSystem.Infra.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -58,5 +60,22 @@ namespace FlightSystem.Controllers
             return _cityService.GetCitiesByCountry(countryId);
 
         }
+        [Route("uploadImage")]
+        [HttpPost]
+        public City UploadImage()
+        {
+            var file = Request.Form.Files[0];
+            var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            var fullPath = Path.Combine("C:\\Users\\USER\\Desktop\\FlightProject\\src\\assets\\Images", fileName);
+
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+            City item = new City();
+            item.Cityimage = fileName;
+            return item;
+        }
+
     }
 }
