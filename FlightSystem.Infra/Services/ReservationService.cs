@@ -29,7 +29,7 @@ namespace FlightSystem.Infra.Services
         {
             return _reservationRepository.FetchAllReservation();
         }
-        public ReservationDTO FetchReservationByUserID(int userId)
+        public List<ReservationDTO> FetchReservationByUserID(int userId)
         {
             return _reservationRepository.FetchReservationByUserID(userId);
         }
