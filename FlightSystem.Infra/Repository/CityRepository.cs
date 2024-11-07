@@ -25,16 +25,16 @@ namespace FlightSystem.Infra.Repository
         {
             var p = new DynamicParameters();
             p.Add("p_CityName", city.Cityname, DbType.String, ParameterDirection.Input);
-            p.Add("CityImage", city.Cityimage, DbType.String, ParameterDirection.Input);
-            p.Add("CityImage", city.Countryid, DbType.String, ParameterDirection.Input);
+            p.Add("p_CityImage", city.Cityimage, DbType.String, ParameterDirection.Input);
+            p.Add("p_CountryId", city.Countryid, DbType.String, ParameterDirection.Input);
             _dbContext.Connection.Execute("CITY_PKG.CREATE_CITY", p, commandType: CommandType.StoredProcedure);
         }
         public void UpdateCity(City city)
         {
             var p = new DynamicParameters();
             p.Add("p_CityName", city.Cityname, DbType.String, ParameterDirection.Input);
-            p.Add("CityImage", city.Cityimage, DbType.String, ParameterDirection.Input);
-            p.Add("CityImage", city.Countryid, DbType.String, ParameterDirection.Input);
+            p.Add("p_CityImage", city.Cityimage, DbType.String, ParameterDirection.Input);
+            p.Add("p_CountryId", city.Countryid, DbType.String, ParameterDirection.Input);
             _dbContext.Connection.Execute("CITY_PKG.UPDATE_CITY", p, commandType: CommandType.StoredProcedure);
 
         }
