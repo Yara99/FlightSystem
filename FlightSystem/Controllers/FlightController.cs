@@ -40,10 +40,11 @@ namespace FlightSystem.Controllers
             return _flightService.FetchFlightByID(id);
         }
         [HttpGet]
-        [Route("FetchFlightByFlightNumber/{flightNumber}")]
+        [Route("FetchFlightByFlightNumber")]
         public List<FlightDTO> FetchFlightByFlightNumber(string flightNumber)
         {
             return _flightService.FetchFlightByFlightNumber(flightNumber);
+           
 
         }
         [HttpGet]
