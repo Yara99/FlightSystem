@@ -34,13 +34,13 @@ namespace FlightSystem.Infra.Repository
             _dbContext.Connection.Execute("Reservation_Package.CreateReservation",p,commandType:CommandType.StoredProcedure);
         }
 
-        public ReservationDTO FetchReservationByUserID(int userId)
+        public List<ReservationDTO> FetchReservationByUserID(int userId)
         {
             var p = new DynamicParameters();
             p.Add("p_UserID", userId, dbType:DbType.Int32,direction:ParameterDirection.Input);
             var result = _dbContext.Connection.Query<ReservationDTO>("Reservation_Package.FetchReservationsByUserID",
-                p,commandType:CommandType.StoredProcedure);
-            return result.FirstOrDefault();
+                p,  commandType:CommandType.StoredProcedure);
+            return result.ToList();
         }
         public ReservationDTO FetchReservationById(int Id)
         {

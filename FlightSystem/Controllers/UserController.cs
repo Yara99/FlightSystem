@@ -60,7 +60,7 @@ namespace FlightSystem.Controllers
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
             /*var fullPath = Path.Combine("Images", fileName);*/
             //for angular project
-            var fullPath = Path.Combine("C:\\Users\\USER\\Desktop\\FlightProject_Local\\FlightProject\\src\\assets\\Images", fileName);
+            var fullPath = Path.Combine("C:\\Users\\juman\\Desktop\\FlightProject\\src\\assets\\Images", fileName);
 
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {

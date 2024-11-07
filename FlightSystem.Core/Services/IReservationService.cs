@@ -13,7 +13,7 @@ namespace FlightSystem.Core.Services
         public void CreateReservation(Reservation reservation);
         public ReservationDTO FetchReservationById(int id);
         public List<ReservationDTO> FetchAllReservation();
-        public ReservationDTO FetchReservationByUserID(int userId);
+        public List<ReservationDTO> FetchReservationByUserID(int userId);
 
         public List<SearchReservationDTO> SearchReservation(SearchReservationDTO obj);
 
