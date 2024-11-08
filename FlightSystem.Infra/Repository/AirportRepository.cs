@@ -37,8 +37,8 @@ namespace FlightSystem.Infra.Repository
             p.Add("p_ID", airport.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("p_AirportName", airport.Airportname, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("p_IATACode", airport.Iatacode, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("p_Longitude", airport.Longitude, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("p_Latitude", airport.Latitude, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_Longitude", airport.Longitude, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("p_Latitude", airport.Latitude, dbType: DbType.Double, direction: ParameterDirection.Input);
             p.Add("p_AirportImage", airport.Airportimage, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("p_CityId", airport.Cityid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("AirPort_Package.UpdateAirport", p, commandType: CommandType.StoredProcedure);
