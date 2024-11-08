@@ -15,5 +15,7 @@ namespace FlightSystem.Core.DTO
         public decimal? Latitude { get; set; }
         public string? Airportimage { get; set; }
         public string? Cityname { get; set; }
+        public decimal? Cityid { get; set; }
+
     }
 }
