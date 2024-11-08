@@ -31,6 +31,7 @@ namespace FlightSystem.Infra.Repository
         public void UpdateCountry(Country country)
         {
             var p = new DynamicParameters();
+            p.Add("p_ID", country.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("p_CountryName", country.Countryname, DbType.String, ParameterDirection.Input);
 
             _dbContext.Connection.Execute("COUNTRY_PKG.UPDATE_COUNTRY", p, commandType: CommandType.StoredProcedure);

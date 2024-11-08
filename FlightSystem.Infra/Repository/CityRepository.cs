@@ -32,6 +32,7 @@ namespace FlightSystem.Infra.Repository
         public void UpdateCity(City city)
         {
             var p = new DynamicParameters();
+            p.Add("p_ID", city.Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("p_CityName", city.Cityname, DbType.String, ParameterDirection.Input);
             p.Add("p_CityImage", city.Cityimage, DbType.String, ParameterDirection.Input);
             p.Add("p_CountryId", city.Countryid, DbType.String, ParameterDirection.Input);
