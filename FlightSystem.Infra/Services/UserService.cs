@@ -55,5 +55,11 @@ namespace FlightSystem.Infra.Services
             return _userRepository.GetUserById(userId);
         }
 
+        public string CheckUserExists(UserDTO user)
+        {
+            return _userRepository.CheckUserExists(user);
+        }
+
+
     }
 }

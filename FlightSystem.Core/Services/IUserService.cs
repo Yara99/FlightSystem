@@ -15,5 +15,7 @@ namespace FlightSystem.Core.Services
 
         List<UserDTO> GetAllUsers();
         UserDTO GetUserById(int userId);
+
+        public string CheckUserExists(UserDTO user);
     }
 }

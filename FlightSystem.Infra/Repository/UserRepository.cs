@@ -96,6 +96,20 @@ namespace FlightSystem.Infra.Repository
 
 
 
+        public string CheckUserExists(UserDTO user)
+        {
+            var p = new DynamicParameters();
+            p.Add("p_Username", user.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("p_Email", user.Email, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            p.Add("p_Result", dbType: DbType.String, size: 20, direction: ParameterDirection.Output);
+
+            var res = _dbContext.Connection.Execute("USER_PKG.CheckUserExists", p, commandType: CommandType.StoredProcedure);
+
+            string result = p.Get<string>("p_Result");
+            return result;
+        }
+
     }
 
 }
