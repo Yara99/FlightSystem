@@ -15,5 +15,6 @@ namespace FlightSystem.Core.Repository
 
         List<UserDTO> GetAllUsers();
         UserDTO GetUserById(int userId);
+        public string CheckUserExists(UserDTO user);
     }
 }

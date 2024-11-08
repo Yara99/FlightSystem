@@ -71,5 +71,13 @@ namespace FlightSystem.Controllers
             return item;
         }
 
+
+        [Route("CheckUserExists")]
+        [HttpPost]
+        public string CheckUserExists(UserDTO user)
+        {
+            return _userService.CheckUserExists(user);
+        }
+
     }
 }
