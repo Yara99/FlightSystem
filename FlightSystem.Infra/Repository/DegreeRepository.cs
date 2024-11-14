@@ -43,6 +43,11 @@ namespace FlightSystem.Infra.Repository
             _dbContext.Connection.Execute("degree_Package.DeleteDegree", p, commandType: CommandType.StoredProcedure);
 
         }
+        public List<Degree> GetAllDegrees()
+        {
+            var result = _dbContext.Connection.Query<Degree>("degree_Package.GetAllDegrees", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
 
 
 

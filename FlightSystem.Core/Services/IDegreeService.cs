@@ -12,5 +12,6 @@ namespace FlightSystem.Core.Services
         public void CreateDegree(Degree degree);
         public void UpdateDegree(Degree degree);
         public void DeleteDegree(int id);
+        public List<Degree> GetAllDegrees();
     }
 }

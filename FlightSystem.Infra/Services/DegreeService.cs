@@ -30,5 +30,10 @@ namespace FlightSystem.Infra.Services
         {
             _degreeRepository.DeleteDegree(id);
         }
+        public List<Degree> GetAllDegrees()
+        {
+            return _degreeRepository.GetAllDegrees();   
+        }
+
     }
 }

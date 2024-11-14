@@ -36,6 +36,13 @@ namespace FlightSystem.Controllers
         {
             _degreeService.DeleteDegree(id);
         }
+        [HttpGet]
+        [Route("GetAllDegrees")]
+        public List<Degree> GetAllDegrees()
+        {
+            return _degreeService.GetAllDegrees();
+        }
+
 
 
     }
