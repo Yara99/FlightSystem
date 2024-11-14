@@ -52,6 +52,13 @@ namespace FlightSystem.Infra.Services
             return _reservationRepository.CalculateTotalBenefits(startDate, endDate);
         }
 
-        
+
+        public List<ReservationDTO> FetchReservationsByFlightId(int flightId)
+        {
+            return _reservationRepository.FetchReservationsByFlightId(flightId);
+        }
+
+
+
     }
 }

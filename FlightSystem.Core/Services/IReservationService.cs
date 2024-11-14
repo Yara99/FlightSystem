@@ -21,5 +21,8 @@ namespace FlightSystem.Core.Services
         public CountDTO GetEntityCounts();
 
         public decimal CalculateTotalBenefits(DateTime startDate, DateTime endDate);
+
+        public List<ReservationDTO> FetchReservationsByFlightId(int flightId);
+
     }
 }

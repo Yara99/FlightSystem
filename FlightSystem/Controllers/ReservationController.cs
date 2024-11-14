@@ -65,6 +65,13 @@ namespace FlightSystem.Controllers
         }
 
 
+        [HttpGet]
+        [Route("FetchReservationsByFlightId/{flightId}")]
+        public List<ReservationDTO> FetchReservationsByFlightId(int flightId)
+        {
+            return _reservationService.FetchReservationsByFlightId(flightId);
+        }
+
 
     }
 }

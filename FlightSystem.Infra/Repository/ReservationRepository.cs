@@ -42,6 +42,8 @@ namespace FlightSystem.Infra.Repository
                 p,  commandType:CommandType.StoredProcedure);
             return result.ToList();
         }
+
+
         public ReservationDTO FetchReservationById(int Id)
         {
             var p = new DynamicParameters();
@@ -50,12 +52,15 @@ namespace FlightSystem.Infra.Repository
                 p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
+
+
         public List<ReservationDTO> FetchAllReservation()
         {
             var result = _dbContext.Connection.Query<ReservationDTO>("Reservation_Package.FetchAllReservations",
                  commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
         
 
         public List<SearchReservationDTO> SearchReservation(SearchReservationDTO obj)
@@ -112,6 +117,17 @@ namespace FlightSystem.Infra.Repository
 
             return parameters.Get<decimal>("totalBenefits");
         }
+
+
+
+        public List<ReservationDTO> FetchReservationsByFlightId(int flightId)
+        {
+            var p = new DynamicParameters();
+            p.Add("p_id", flightId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.Query<ReservationDTO>("Reservation_Package.FetchReservationsByFlightId", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
 
     }
 }
