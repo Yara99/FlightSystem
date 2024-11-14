@@ -120,11 +120,11 @@ namespace FlightSystem.Infra.Repository
 
 
 
-        public List<ReservationDTO> FetchReservationsByFlightId(int flightId)
+        public List<ReservationDTO> FetchReservationsByAirline(int flightId)
         {
             var p = new DynamicParameters();
             p.Add("p_id", flightId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = _dbContext.Connection.Query<ReservationDTO>("Reservation_Package.FetchReservationsByFlightId", p, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.Query<ReservationDTO>("Reservation_Package.FetchReservationsByAirline", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
