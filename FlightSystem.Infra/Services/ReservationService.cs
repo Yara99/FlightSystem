@@ -53,9 +53,9 @@ namespace FlightSystem.Infra.Services
         }
 
 
-        public List<ReservationDTO> FetchReservationsByFlightId(int flightId)
+        public List<ReservationDTO> FetchReservationsByFlightId(int airlineid)
         {
-            return _reservationRepository.FetchReservationsByAirline(flightId);
+            return _reservationRepository.FetchReservationsByAirline(airlineid);
         }
 
 

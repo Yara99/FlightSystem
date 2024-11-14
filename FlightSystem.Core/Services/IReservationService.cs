@@ -22,7 +22,7 @@ namespace FlightSystem.Core.Services
 
         public decimal CalculateTotalBenefits(DateTime startDate, DateTime endDate);
 
-        public List<ReservationDTO> FetchReservationsByAirline(int flightId);
+        public List<ReservationDTO> FetchReservationsByAirline(int airlineid);
 
     }
 }
