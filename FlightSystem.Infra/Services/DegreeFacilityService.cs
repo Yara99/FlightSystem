@@ -30,5 +30,11 @@ namespace FlightSystem.Infra.Services
         {
             _degreefacilityRepository.DeleteDegreeFacility(id);
         }
+
+        public List<Facility> GetAvailableFacilitiesForDegree(int degreeId)
+        {
+            return _degreefacilityRepository.GetAvailableFacilitiesForDegree(degreeId);
+
+        }
     }
 }

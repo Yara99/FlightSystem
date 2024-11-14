@@ -36,5 +36,17 @@ namespace FlightSystem.Controllers
             _degreefacilityService.DeleteDegreeFacility(id);
         }
 
+        [HttpGet]
+        [Route("GetAvailableFacilitiesForDegree/{degreeId}")]
+        public ActionResult<List<Facility>> GetAvailableFacilitiesForDegree(int degreeId)
+        {
+            var availableFacilities = _degreefacilityService.GetAvailableFacilitiesForDegree(degreeId);
+
+            if (availableFacilities == null || availableFacilities.Count == 0)
+                return NotFound(new { message = "No available facilities found for the specified degree." });
+
+            return Ok(availableFacilities);
+        }
+
     }
 }

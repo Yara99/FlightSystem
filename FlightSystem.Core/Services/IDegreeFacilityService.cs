@@ -12,5 +12,6 @@ namespace FlightSystem.Core.Services
         public void CreateDegreeFacility(DegreeFacility degreeFacility);
         public void UpdateDegreeFacility(DegreeFacility degreeFacility);
         public void DeleteDegreeFacility(int id);
+        public List<Facility> GetAvailableFacilitiesForDegree(int degreeId);
     }
 }
