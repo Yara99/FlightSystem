@@ -36,7 +36,7 @@ namespace FlightSystem.Controllers
         }
 
         [HttpDelete]
-        [Route("DeleteFacility")]
+        [Route("DeleteFacility/{id}")]
         public void DeleteFacility(int id)
         {
             _facilityService.DeleteFacility(id);
