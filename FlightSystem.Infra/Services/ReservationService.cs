@@ -53,7 +53,7 @@ namespace FlightSystem.Infra.Services
         }
 
 
-        public List<ReservationDTO> FetchReservationsByFlightId(int airlineid)
+        public List<ReservationDTO> FetchReservationsByAirline(int airlineid)
         {
             return _reservationRepository.FetchReservationsByAirline(airlineid);
         }

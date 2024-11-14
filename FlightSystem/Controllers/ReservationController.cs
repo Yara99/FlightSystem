@@ -67,7 +67,7 @@ namespace FlightSystem.Controllers
 
         [HttpGet]
         [Route("FetchReservationsByFlightId/{airlineid}")]
-        public List<ReservationDTO> FetchReservationsByFlightId(int airlineid)
+        public List<ReservationDTO> FetchReservationsByAirline(int airlineid)
         {
             return _reservationService.FetchReservationsByAirline(airlineid);
         }
