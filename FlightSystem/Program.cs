@@ -89,6 +89,9 @@ builder.Services.AddScoped<IBankService, BankService>();
 builder.Services.AddScoped<IPdfService, PdfService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 
+builder.Services.AddScoped<IContactMessageRepository, ContactMessageRepository>();
+builder.Services.AddScoped<IContactMessageService, ContactMessageService>();
+
 
 
 

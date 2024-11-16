@@ -34,6 +34,7 @@ namespace FlightSystem.Core.Data
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<Testimonial> Testimonials { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
+        public virtual DbSet<ContactMessage> ContactMessages { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -643,6 +644,40 @@ namespace FlightSystem.Core.Data
                     .IsUnicode(false)
                     .HasColumnName("PHONE");
             });
+
+
+
+            modelBuilder.Entity<ContactMessage>(entity =>
+            {
+                entity.ToTable("CONTACT_MESSAGES");
+
+                entity.Property(e => e.Id)
+                    .HasColumnType("NUMBER")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("ID");
+
+                entity.Property(e => e.Firstname)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("FIRSTNAME");
+
+                entity.Property(e => e.Lastname)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("LASTNAME");
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("EMAIL");
+
+                entity.Property(e => e.Message)
+                    .HasColumnType("CLOB")
+                    .HasColumnName("MESSAGE");
+            });
+
+
+
 
             OnModelCreatingPartial(modelBuilder);
         }

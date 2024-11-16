@@ -22,7 +22,7 @@ namespace FlightSystem.Infra.Services
         public void CreateUser(UserDTO userDto)
         {
             _userRepository.CreateUser(userDto);
-        }
+        }   
 
         public void UpdateUser(UserDTO userDto)
         {
