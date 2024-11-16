@@ -42,5 +42,21 @@ namespace FlightSystem.Infra.Repository
             p.Add("dfid", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("degree_facility_Package.DeleteDegreeFacility", p, commandType: CommandType.StoredProcedure);
         }
+
+
+        public List<Facility> GetAvailableFacilitiesForDegree(int degreeId)
+        {
+            var p = new DynamicParameters();
+            p.Add("Degree_id", degreeId, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            // Execute the stored procedure and map the result to a list of Facility objects
+            var result = _dbContext.Connection.Query<Facility>("degree_facility_Package.GetAvailableFacilitiesForDegree",
+                p,
+                commandType: CommandType.StoredProcedure
+            ).ToList(); // Convert the result to a List<Facility>
+
+            return result;
+        }
+
     }
 }
