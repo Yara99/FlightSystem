@@ -16,6 +16,7 @@ namespace FlightSystem.Core.DTO
         public string? Degreename { get; set; }
         public string? Price { get; set; }
         public string? FlightNumber { get; set; }
+        public decimal? Discountvalue { get; set; }
 
         public DateTime? Departuredate { get; set; }
         public DateTime? Destinationdate { get; set; }
