@@ -58,7 +58,15 @@ namespace FlightSystem.Infra.Services
             return _reservationRepository.FetchReservationsByAirline(airlineid);
         }
 
+        public List<ReservationDTO> GetMonthlyBenefits(int month, int year)
+        {
+            return _reservationRepository.GetMonthlyBenefits(month, year);
+        }
 
+        public List<ReservationDTO> GetAnnualBenefits(int year)
+        {
+            return _reservationRepository.GetAnnualBenefits(year);
+        }
 
     }
 }

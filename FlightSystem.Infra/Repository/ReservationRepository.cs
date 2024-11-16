@@ -129,5 +129,33 @@ namespace FlightSystem.Infra.Repository
         }
 
 
+
+        // Method to get the monthly benefits
+        public List<ReservationDTO> GetMonthlyBenefits(int month, int year)
+        {
+            var p = new DynamicParameters();
+            p.Add("reportMonth", month, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("reportYear ", year, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            // This assumes the procedure 'GetMonthlyBenefits' returns a list of reservations with total prices for the month
+            var result = _dbContext.Connection.Query<ReservationDTO>("Reservation_Package. GetMonthlyReport",
+                p, commandType: CommandType.StoredProcedure);
+
+            return result.ToList();
+        }
+
+        // Method to get the annual benefits
+        public List<ReservationDTO> GetAnnualBenefits(int year)
+        {
+            var p = new DynamicParameters();
+            p.Add("reportYear", year, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            // This assumes the procedure 'GetAnnualBenefits' returns a list of reservations with total prices for the year
+            var result = _dbContext.Connection.Query<ReservationDTO>("Reservation_Package.GetAnnualReport",
+                p, commandType: CommandType.StoredProcedure);
+
+            return result.ToList();
+        }
+
     }
 }

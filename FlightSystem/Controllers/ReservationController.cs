@@ -73,5 +73,21 @@ namespace FlightSystem.Controllers
         }
 
 
+        // New API endpoint for getting monthly benefits
+        [HttpGet]
+        [Route("MonthlyBenefits/{month}/{year}")]
+        public List<ReservationDTO> GetMonthlyBenefits(int month, int year)
+        {
+            return _reservationService.GetMonthlyBenefits(month, year);
+        }
+
+        // New API endpoint for getting annual benefits
+        [HttpGet]
+        [Route("AnnualBenefits/{year}")]
+        public List<ReservationDTO> GetAnnualBenefits(int year)
+        {
+            return _reservationService.GetAnnualBenefits(year);
+        }
+
     }
 }

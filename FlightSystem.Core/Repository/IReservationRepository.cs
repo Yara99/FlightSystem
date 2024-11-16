@@ -24,5 +24,9 @@ namespace FlightSystem.Core.Repository
 
         public List<ReservationDTO> FetchReservationsByAirline(int airlineid);
 
+        public List<ReservationDTO> GetMonthlyBenefits(int month, int year);
+
+        public List<ReservationDTO> GetAnnualBenefits(int year);
+
     }
 }
