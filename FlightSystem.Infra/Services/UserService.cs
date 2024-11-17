@@ -60,6 +60,11 @@ namespace FlightSystem.Infra.Services
             return _userRepository.CheckUserExists(user);
         }
 
+        public List<UserDTO> GetUsersWithPartners()
+        {
+            return _userRepository.GetUsersWithPartners();
+        }
+
 
     }
 }

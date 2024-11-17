@@ -29,7 +29,7 @@ namespace FlightSystem.Controllers
 
 
         [HttpGet]
-        [Route("getPartnerByUserId/{id}")]
+        [Route("getPartnerByUserId/{userId}")]
         public List<PartnerDTO> GetPartnersByUser(int userId)
         {
             return _partnerService.GetPartnersByUser(userId);

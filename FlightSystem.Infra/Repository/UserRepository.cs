@@ -110,6 +110,12 @@ namespace FlightSystem.Infra.Repository
             return result;
         }
 
+        public List<UserDTO> GetUsersWithPartners()
+        {
+            var result = _dbContext.Connection.Query<UserDTO>("USER_PKG.GetUsersWithPartners", commandType: CommandType.StoredProcedure).ToList();
+            return result.ToList();
+        }
+
     }
 
 }
