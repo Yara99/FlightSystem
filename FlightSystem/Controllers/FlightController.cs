@@ -41,7 +41,7 @@ namespace FlightSystem.Controllers
         }
         [HttpGet]
         [Route("FetchFlightByFlightNumber")]
-        public List<FlightDTO> FetchFlightByFlightNumber(string flightNumber)
+        public FlightDTO FetchFlightByFlightNumber(string flightNumber)
         {
             return _flightService.FetchFlightByFlightNumber(flightNumber);
            

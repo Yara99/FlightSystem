@@ -33,6 +33,8 @@ namespace FlightSystem.Infra.Repository
             p.Add("p_DepartureAirportID", flight.Departureairportid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("p_DestinationAirportID", flight.Destinationairportid, dbType: DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("p_DegreeID", flight.Degreeid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_PriceAfterDiscount", flight.PriceAfterDiscount, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
             _dbContext.Connection.Execute("Flight_Package.CreateFlight", p, commandType: CommandType.StoredProcedure);
         }
         public void UpdateFlight(Flight flight)
@@ -49,6 +51,8 @@ namespace FlightSystem.Infra.Repository
             p.Add("p_DepartureAirportID", flight.Departureairportid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("p_DestinationAirportID", flight.Destinationairportid, dbType: DbType.Decimal, direction: ParameterDirection.Input);
             p.Add("p_DegreeID", flight.Degreeid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("p_PriceAfterDiscount", flight.PriceAfterDiscount, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
             _dbContext.Connection.Execute("Flight_Package.UpdateFlight", p, commandType: CommandType.StoredProcedure);
         }
         public void DeleteFlight(int id)
@@ -65,13 +69,13 @@ namespace FlightSystem.Infra.Repository
                 commandType:CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
-        public List<FlightDTO> FetchFlightByFlightNumber(string flightNumber)
+        public FlightDTO FetchFlightByFlightNumber(string flightNumber)
         {
             var p = new DynamicParameters();
             p.Add("p_FlightNumber", flightNumber,dbType: DbType.String,direction:ParameterDirection.Input);
             var result = _dbContext.Connection.Query<FlightDTO>("Flight_Package.FetchFlightByFlightNumber",p,
                 commandType:CommandType.StoredProcedure);
-            return result.ToList();
+            return result.SingleOrDefault();
         }
         public List<FlightDTO> FetchAllFlights()
         {

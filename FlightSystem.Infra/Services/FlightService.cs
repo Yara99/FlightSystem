@@ -33,7 +33,7 @@ namespace FlightSystem.Infra.Services
         {
             return _flightRepository.FetchFlightByID(id);
         }
-        public List<FlightDTO> FetchFlightByFlightNumber(string flightNumber)
+        public FlightDTO FetchFlightByFlightNumber(string flightNumber)
         {
            return _flightRepository.FetchFlightByFlightNumber(flightNumber);
         }

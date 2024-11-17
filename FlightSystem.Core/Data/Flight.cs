@@ -22,6 +22,8 @@ namespace FlightSystem.Core.Data
         public decimal? Departureairportid { get; set; }
         public decimal? Destinationairportid { get; set; }
         public decimal? Degreeid { get; set; }
+        public decimal? PriceAfterDiscount { get; set; }
+
 
         public virtual Airline? Airline { get; set; }
         public virtual Degree? Degree { get; set; }

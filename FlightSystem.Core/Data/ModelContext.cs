@@ -394,6 +394,9 @@ namespace FlightSystem.Core.Data
                     .HasForeignKey(d => d.Destinationairportid)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("SYS_C008493");
+                entity.Property(e => e.PriceAfterDiscount)
+                   .HasColumnType("NUMBER")
+                   .HasColumnName("PRICEAFTERDISCOUNT");
             });
 
             modelBuilder.Entity<Home>(entity =>

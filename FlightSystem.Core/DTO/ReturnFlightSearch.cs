@@ -28,6 +28,8 @@ namespace FlightSystem.Core.DTO
         public string? DepartureAirportName { get; set; }
 
         public string? DestinationAirportName { get; set; }
+        public decimal? PriceAfterDiscount { get; set; }
+
 
 
 
