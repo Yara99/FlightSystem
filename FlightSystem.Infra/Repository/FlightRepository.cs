@@ -94,11 +94,11 @@ namespace FlightSystem.Infra.Repository
             var result = _dbContext.Connection.Query<ReturnFlightSearch>("Flight_Package.SearchForFlights",p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-        public List<Facility> GetAllFacilitesByDegreeId(int id)
+        public List<DfDTO> GetAllFacilitesByDegreeId(int id)
         {
             var p = new DynamicParameters();
             p.Add("p_Degreeid",id,dbType:DbType.Int32,direction:ParameterDirection.Input);
-            var result = _dbContext.Connection.Query<Facility>("Flight_Package.FetchAllFacilitesByDegreeId",p,
+            var result = _dbContext.Connection.Query<DfDTO>("Flight_Package.FetchAllFacilitesByDegreeId",p,
                 commandType:CommandType.StoredProcedure);
             return result.ToList();
         }

@@ -45,7 +45,7 @@ namespace FlightSystem.Infra.Services
         {
             return _flightRepository.FetchFlightBasedOnUserSearch(obj);
         }
-        public List<Facility> GetAllFacilitesByDegreeId(int id)
+        public List<DfDTO> GetAllFacilitesByDegreeId(int id)
         {
             return _flightRepository.GetAllFacilitesByDegreeId(id);
         }
