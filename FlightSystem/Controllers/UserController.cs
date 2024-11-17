@@ -80,5 +80,15 @@ namespace FlightSystem.Controllers
             return Ok(new { result });
         }
 
+
+
+        [HttpGet]
+        [Route("GetUsersWithPartners")]
+        public List<UserDTO> GetUsersWithPartners()
+        {
+            return _userService.GetUsersWithPartners();
+        }
+
+
     }
 }
